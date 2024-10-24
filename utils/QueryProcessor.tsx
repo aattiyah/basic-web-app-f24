@@ -17,22 +17,14 @@ export default function QueryProcessor(query: string): string {
     return ("aattiyah-313");
   }
 
-  if (query.toLowerCase().includes("What is plus")) {
+  if (query.toLowerCase().includes("what is") && query.toLowerCase().includes("plus")) {
     const numbers = query.match(/\d+/g)?.map(Number);
-    if (numbers) {
+    if (numbers && numbers.length === 2) {
       return (numbers[0] + numbers[1]).toString();
-    }
-  }
-
-  if (query.toLowerCase().includes("which numbers is the largest:")) {
-    const numbers = query.match(/\d+/g)?.map(Number);
-    if (numbers) {
-      return Math.max(...numbers).toString();
     }
   }
   
 
   return "";
-  
   
 }
