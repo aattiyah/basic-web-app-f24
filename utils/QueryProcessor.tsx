@@ -74,7 +74,7 @@ export default function QueryProcessor(query: string): string {
     }
   }
 
-  if (query.includes("What is") && query.includes("to the power of")) {
+  if (query.includes("to the power of")) {
     const numbers = query.match(/\d+/g)?.map(Number);
     if (numbers && numbers.length === 2) {
       return Math.pow(numbers[0], numbers[1]).toString();
