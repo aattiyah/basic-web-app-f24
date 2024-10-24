@@ -17,10 +17,10 @@ export default function QueryProcessor(query: string): string {
     return ("aattiyah-313");
   }
 
-  if (query.includes("What is") && query.toLowerCase().includes("plus")) {
+  if (query.includes("What is") && query.includes("plus")) {
     const numbers = query.match(/\d+/g)?.map(Number);
-    if (numbers && numbers.length === 2) {
-      return (numbers[0] + numbers[1]).toString();
+    if (numbers && numbers.length >= 2) {
+      return numbers.reduce((acc, num) => acc + num, 0).toString();
     }
   }
   
@@ -80,7 +80,7 @@ export default function QueryProcessor(query: string): string {
       return Math.pow(numbers[0], numbers[1]).toString();
     }
   }
-  
+
   return "";
   
 }
