@@ -16,6 +16,23 @@ export default function QueryProcessor(query: string): string {
   if (query.toLowerCase().includes("what is your name")) {
     return ("aattiyah-313");
   }
+
+  if (query.toLowerCase().includes("What is plus")) {
+    const numbers = query.match(/\d+/g)?.map(Number);
+    if (numbers) {
+      return (numbers[0] + numbers[1]).toString();
+    }
+  }
+
+  if (query.toLowerCase().includes("which numbers is the largest:")) {
+    const numbers = query.match(/\d+/g)?.map(Number);
+    if (numbers) {
+      return Math.max(...numbers).toString();
+    }
+  }
+  
+
   return "";
+  
   
 }
